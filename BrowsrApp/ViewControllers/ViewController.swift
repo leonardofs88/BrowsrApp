@@ -53,7 +53,9 @@ class ViewController: UIViewController {
     func loadData() {
         viewModel?.loadData(pageIndex: currentIndex) { [weak self] responseError in
             if let error = responseError {
-                self?.showError(error: error)
+                DispatchQueue.main.async {
+                    self?.showError(error: error)
+                }
             } else {
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
@@ -64,7 +66,9 @@ class ViewController: UIViewController {
     
     func showError(error: Error) {
         let alert = UIAlertController(title: "An error has occurred", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default) { [weak self] _ in
+            self?.loadData()
+        } )
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -122,7 +126,9 @@ extension ViewController: UITextFieldDelegate {
         if let text = textField.text, !text.isEmpty {
             viewModel?.search(for: text) { [weak self] responseError in
                 if let error = responseError {
-                    self?.showError(error: error)
+                    DispatchQueue.main.async {
+                        self?.showError(error: error)
+                    }
                 } else {
                     DispatchQueue.main.async {
                         self?.currentIndex = 0
