@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rhS-Wg-TUY">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--BrowsrApp-->
+        <scene sceneID="3lz-PL-5HM">
+            <objects>
+                <viewController title="BrowsrApp" id="pVt-e9-ug6" customClass="ViewController" customModule="BrowsrApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3t2-AQ-Xg4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for Organization" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0IJ-uA-tTo">
+                                <rect key="frame" x="18" y="113" width="246" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ovj-jp-Ofm">
+                                <rect key="frame" x="18" y="165" width="357" height="635"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWj-lO-Y2o">
+                                <rect key="frame" x="282" y="112" width="93" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Favorites">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="toggleFavorites:" destination="pVt-e9-ug6" eventType="touchUpInside" id="fdU-fL-7xn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uK4-3h-DiN"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uWj-lO-Y2o" firstAttribute="leading" secondItem="0IJ-uA-tTo" secondAttribute="trailing" constant="18" id="23J-I3-YJl"/>
+                            <constraint firstItem="Ovj-jp-Ofm" firstAttribute="top" secondItem="uWj-lO-Y2o" secondAttribute="bottom" constant="18" id="7Ow-5a-Btv"/>
+                            <constraint firstItem="0IJ-uA-tTo" firstAttribute="top" secondItem="uK4-3h-DiN" secondAttribute="top" constant="10" id="Go9-Xv-WLN"/>
+                            <constraint firstItem="Ovj-jp-Ofm" firstAttribute="leading" secondItem="uK4-3h-DiN" secondAttribute="leading" constant="18" id="H4T-y2-e71"/>
+                            <constraint firstItem="Ovj-jp-Ofm" firstAttribute="top" secondItem="0IJ-uA-tTo" secondAttribute="bottom" constant="18" id="J3V-5X-skY"/>
+                            <constraint firstItem="0IJ-uA-tTo" firstAttribute="leading" secondItem="uK4-3h-DiN" secondAttribute="leading" constant="18" id="NmY-Xm-gBq"/>
+                            <constraint firstItem="uK4-3h-DiN" firstAttribute="trailing" secondItem="Ovj-jp-Ofm" secondAttribute="trailing" constant="18" id="Xjn-Yj-EAJ"/>
+                            <constraint firstItem="uK4-3h-DiN" firstAttribute="trailing" secondItem="uWj-lO-Y2o" secondAttribute="trailing" constant="18" id="ree-d4-hxX"/>
+                            <constraint firstItem="uK4-3h-DiN" firstAttribute="bottom" secondItem="Ovj-jp-Ofm" secondAttribute="bottom" constant="18" id="yWF-NG-xmk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="BrowsrApp" id="uOY-gq-9Dj"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="0IJ-uA-tTo" id="T40-k5-0YN"/>
+                        <outlet property="showFavoritesButton" destination="uWj-lO-Y2o" id="gyl-k4-A4M"/>
+                        <outlet property="tableView" destination="Ovj-jp-Ofm" id="JG9-sY-i4i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MJl-Hb-uUt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="881.67938931297704" y="98.591549295774655"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Osa-yw-rGf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rhS-Wg-TUY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dUk-fi-Rni">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pVt-e9-ug6" kind="relationship" relationship="rootViewController" id="hQM-uB-MJ9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gSz-aU-lqN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-45.038167938931295" y="98.591549295774655"/>
+        </scene>
+    </scenes>
+</document>
